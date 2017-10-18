@@ -1,5 +1,7 @@
 package org.jimmyoak.workshop.stream.explain.e3;
 
+import org.jimmyoak.workshop.stream.exercises.Exercise2;
+import org.jimmyoak.workshop.stream.explain.utils.ExerciseWhenFinished;
 import org.jimmyoak.workshop.stream.explain.utils.Info;
 import org.junit.Test;
 
@@ -10,6 +12,7 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@ExerciseWhenFinished(Exercise2.class)
 public class CollectingStreams {
   @Test
   public void collect_to_list() throws Exception {

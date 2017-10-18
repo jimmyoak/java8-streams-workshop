@@ -1,11 +1,12 @@
 package org.jimmyoak.workshop.stream.explain.e5;
 
+import org.jimmyoak.workshop.stream.exercises.Exercise4;
+import org.jimmyoak.workshop.stream.explain.utils.ExerciseWhenFinished;
 import org.jimmyoak.workshop.stream.explain.utils.Info;
 import org.junit.Test;
 import org.mockito.InOrder;
 import org.mockito.Mockito;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -14,11 +15,13 @@ import java.util.stream.Stream;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.inOrder;
 
-public class StreamMoreOperations {
 
+@ExerciseWhenFinished(Exercise4.class)
+public class StreamMoreOperations {
   @Test
   public void reduce() throws Exception {
-    Integer result = Stream.of(5, 3, 2).reduce(10, (accumulator, value) -> accumulator - value);
+    Integer result = Stream.of(5, 3, 2)
+        .reduce(10, (accumulator, value) -> accumulator - value);
 
     assertThat(result).isEqualTo(0);
   }

@@ -1,11 +1,15 @@
 package org.jimmyoak.workshop.stream.explain.e6;
 
+import org.jimmyoak.workshop.stream.exercises.Exercise5;
+import org.jimmyoak.workshop.stream.explain.utils.ExerciseWhenFinished;
 import org.jimmyoak.workshop.stream.explain.utils.Info;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static java.util.Arrays.asList;
@@ -15,6 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.when;
 
+@ExerciseWhenFinished(Exercise5.class)
 public class MixingStreamTypes {
   @Test
   public void mixing() throws Exception {
@@ -50,6 +55,15 @@ public class MixingStreamTypes {
         .sum();
 
     assertThat(totalDebtOfDebtors).isEqualTo(14);
+  }
+
+  @Test
+  public void boxed() throws Exception {
+    List<Integer> collect = IntStream.range(0, 10)
+        .boxed()
+        .collect(Collectors.toList());
+
+    assertThat(collect).containsExactly(0, 1, 3, 4, 5, 6, 7, 8, 9);
   }
 
   private static class Bill {

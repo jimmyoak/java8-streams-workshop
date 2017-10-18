@@ -1,6 +1,6 @@
 package org.jimmyoak.workshop.stream.explain.e2;
 
-import org.jimmyoak.workshop.stream.exercises.exercise1.Exercise1;
+import org.jimmyoak.workshop.stream.exercises.Exercise1;
 import org.jimmyoak.workshop.stream.explain.utils.ExerciseWhenFinished;
 import org.jimmyoak.workshop.stream.explain.utils.Info;
 import org.junit.Test;

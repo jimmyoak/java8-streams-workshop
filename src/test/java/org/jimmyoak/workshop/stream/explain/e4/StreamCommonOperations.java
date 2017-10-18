@@ -1,5 +1,7 @@
 package org.jimmyoak.workshop.stream.explain.e4;
 
+import org.jimmyoak.workshop.stream.exercises.Exercise3;
+import org.jimmyoak.workshop.stream.explain.utils.ExerciseWhenFinished;
 import org.jimmyoak.workshop.stream.explain.utils.Info;
 import org.junit.Test;
 
@@ -10,6 +12,7 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@ExerciseWhenFinished(Exercise3.class)
 public class StreamCommonOperations {
   @Test
   @Info("Transforms stream values applying given function")

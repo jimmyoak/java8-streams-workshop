@@ -58,7 +58,8 @@ public class Parallelization {
   }
 
   @Test
-  @Info("Oh nice! Why not to use it always? Because thread execution and coordination is really expensive")
+  @Info("Oh nice! Why not to use it always? Because thread execution and coordination is really expensive in real world cases." +
+      "The best option is to try both and make a performance test. Take in account immutability and atomicity when working in parallel.")
   public void expensive() throws Exception {
     SomethingRepository somethingRepository = Mockito.mock(SomethingRepository.class);
     when(somethingRepository.persist(any())).then(returnsFirstArg());
@@ -81,6 +82,24 @@ public class Parallelization {
             .map(somethingRepository::persist)
             .collect(Collectors.toList())
     );
+  }
+
+  @Test
+  @Info("Stream can be parallel or sequential and you cannot mix them")
+  public void going_back_to_sequential() throws Exception {
+    PictureRepository pictureRepository = Mockito.mock(PictureRepository.class);
+    when(pictureRepository.findByUserId(any())).thenAnswer(invocation -> {
+      Thread.sleep(1000);
+      return singletonList(new Picture("http://doge.com/picture.jpg"));
+    });
+
+    List<String> pictureUrls = rangeClosed(1, 10)
+        .mapToObj(UserId::new)
+        .parallel()
+        .flatMap(userId -> pictureRepository.findByUserId(userId).stream())
+        .sequential()
+        .map(picture -> picture.url)
+        .collect(Collectors.toList());
   }
 
   private <T> T runWithChrono(String name, Runnable<T> runnable) {
