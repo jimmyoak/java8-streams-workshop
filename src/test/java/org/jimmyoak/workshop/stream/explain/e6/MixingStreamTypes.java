@@ -63,7 +63,7 @@ public class MixingStreamTypes {
         .boxed()
         .collect(Collectors.toList());
 
-    assertThat(collect).containsExactly(0, 1, 3, 4, 5, 6, 7, 8, 9);
+    assertThat(collect).containsExactly(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
   }
 
   private static class Bill {
