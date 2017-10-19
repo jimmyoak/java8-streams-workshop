@@ -20,32 +20,24 @@ public class Exercise2 {
         new User(3, "Oak")
     );
 
-    Map<Integer, User> userDictionary = userStream.collect(Collectors.toMap(it -> it.userId, it -> it));
-
-    assertThat(userDictionary)
-        .hasEntrySatisfying(1, it -> assertThat(it.name).isEqualTo("Jimmy"))
-        .hasEntrySatisfying(2, it -> assertThat(it.name).isEqualTo("Kane"))
-        .hasEntrySatisfying(3, it -> assertThat(it.name).isEqualTo("Oak"));
+//    assertThat(userDictionary)
+//        .hasEntrySatisfying(1, it -> assertThat(it.name).isEqualTo("Jimmy"))
+//        .hasEntrySatisfying(2, it -> assertThat(it.name).isEqualTo("Kane"))
+//        .hasEntrySatisfying(3, it -> assertThat(it.name).isEqualTo("Oak"));
   }
 
   @Test
   public void average() throws Exception {
     IntStream numbers = IntStream.of(5, 10, 15);
 
-    OptionalDouble average = numbers.average();
-
-    assertThat(average.getAsDouble()).isEqualTo(10);
+//    assertThat(average.getAsDouble()).isEqualTo(10);
   }
 
   @Test
   public void name_as_array_into_string() throws Exception {
     String[] nameParts = {"Jimmy", "Kane", "Oak"};
 
-    String fullName = Arrays.stream(nameParts)
-        .map(String::valueOf)
-        .collect(Collectors.joining(","));
-
-    assertThat(fullName).isEqualTo("Jimmy Kane Oak");
+//    assertThat(fullName).isEqualTo("Jimmy Kane Oak");
   }
 
   private static class User {

@@ -15,23 +15,13 @@ public class Exercise5 {
     int primeNumber = 7;
     int notPrimeNumber = 8;
 
-    assertThat(isPrime(primeNumber)).isTrue();
-    assertThat(isPrime(notPrimeNumber)).isFalse();
-  }
-
-  private boolean isPrime(int number) {
-    return range(2, number)
-        .mapToObj(it -> number % it == 0)
-        .noneMatch(it -> it);
+//    assertThat(isPrime(primeNumber)).isTrue();
+//    assertThat(isPrime(notPrimeNumber)).isFalse();
   }
 
   @Test
   public void find_primes_until_50() throws Exception {
-    List<Integer> primeNumbers = rangeClosed(1, 50)
-        .filter(this::isPrime)
-        .boxed()
-        .collect(toList());
 
-    assertThat(primeNumbers).containsExactly(1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47);
+//    assertThat(primeNumbers).containsExactly(1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47);
   }
 }

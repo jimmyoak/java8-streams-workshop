@@ -27,14 +27,8 @@ public class Exercise3 {
     String[] inputPictures = {"RAW_BINARY_INFO1", "RAW_BINARY_INFO2", "RAW_BINARY_INFO3"};
     PictureRepository pictureRepository = pictureRepositoryWillPersistReturningAnUploadedPicture();
 
-    List<UploadedPicture> uploadedPictures = Arrays.stream(inputPictures)
-        .map(PictureRaw::new)
-        .map(UnuploadedPicture::new)
-        .map(pictureRepository::uploadAndPersist)
-        .collect(Collectors.toList());
-
-    assertThat(uploadedPictures).hasSize(3);
-    verify(pictureRepository, times(3)).uploadAndPersist(any());
+//    assertThat(uploadedPictures).hasSize(3);
+//    verify(pictureRepository, times(3)).uploadAndPersist(any());
   }
 
   @Test
@@ -46,13 +40,9 @@ public class Exercise3 {
         new User("Numa", asList(anUploadedPicture(), anUploadedPicture()))
     );
 
-    List<User> usersWithoutPictures = users.stream()
-        .filter(user -> user.pictures.isEmpty())
-        .collect(Collectors.toList());
-
-    assertThat(usersWithoutPictures)
-        .hasSize(1)
-        .allSatisfy(user -> assertThat(user.pictures.isEmpty()).isTrue());
+//    assertThat(usersWithoutPictures)
+//        .hasSize(1)
+//        .allSatisfy(user -> assertThat(user.pictures.isEmpty()).isTrue());
   }
 
   private UploadedPicture anUploadedPicture() {

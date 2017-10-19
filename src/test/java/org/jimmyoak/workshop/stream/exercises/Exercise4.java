@@ -13,20 +13,14 @@ public class Exercise4 {
   public void join_strings_using_reduce() throws Exception {
     Stream<String> letters = Stream.of("Jimmy", "Kane", "Oak");
 
-    Optional<String> fullName = letters.reduce((accumulator, value) -> accumulator + " " + value);
-
-    assertThat(fullName).contains("Jimmy Kane Oak");
+//    assertThat(fullName).contains("Jimmy Kane Oak");
   }
 
   @Test
   public void count_distinct_elements() throws Exception {
     Stream<Integer> numbers = Stream.of(1, 2, 3, 1, 3, 2, 4, 5, 3, 5, 6, 7, 3, 5, 6);
 
-    long count = numbers
-        .distinct()
-        .count();
-
-    assertThat(count).isEqualTo(7);
+//    assertThat(count).isEqualTo(7);
   }
 
   @Test
@@ -38,9 +32,7 @@ public class Exercise4 {
         new Bill(4, 550)
     );
 
-    Optional<Bill> mostExpensiveBill = bills.max(Comparator.comparingDouble(bill -> bill.amount));
-
-    assertThat(mostExpensiveBill).hasValueSatisfying(bill -> assertThat(bill.id).isEqualTo(4));
+//    assertThat(mostExpensiveBill).hasValueSatisfying(bill -> assertThat(bill.id).isEqualTo(4));
   }
 
   private static class Bill {
