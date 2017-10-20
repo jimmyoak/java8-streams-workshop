@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -16,17 +17,17 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CollectingStreams {
   @Test
   public void collect_to_list() throws Exception {
-    List<java.lang.Integer> numbers = Stream.of(1, 2, 3).collect(Collectors.toList());
+    List<Integer> numbers = Stream.of(1, 2, 3).collect(Collectors.toList());
 
     assertThat(numbers).containsExactly(1, 2, 3);
   }
 
   @Test
   public void collect_to_map() throws Exception {
-    Map<java.lang.Integer, String> userIdToName = Stream.of(
+    Map<Integer, String> userIdToName = Stream.of(
         new User(1, "Jimmy"),
         new User(2, "Oak")
-    ).collect(Collectors.toMap(it -> it.id, it -> it.name));
+    ).collect(Collectors.toMap(user -> user.id, user -> user.name));
 
     assertThat(userIdToName)
         .containsEntry(1, "Jimmy")
@@ -77,7 +78,7 @@ public class CollectingStreams {
   private static class SomeInteger {
     final int number;
 
-    public SomeInteger(int number) {
+    SomeInteger(int number) {
       this.number = number;
     }
   }

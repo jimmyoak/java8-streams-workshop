@@ -42,8 +42,7 @@ public class Exercise2 {
     String[] nameParts = {"Jimmy", "Kane", "Oak"};
 
     String fullName = Arrays.stream(nameParts)
-        .map(String::valueOf)
-        .collect(Collectors.joining(","));
+        .collect(Collectors.joining(" "));
 
     assertThat(fullName).isEqualTo("Jimmy Kane Oak");
   }

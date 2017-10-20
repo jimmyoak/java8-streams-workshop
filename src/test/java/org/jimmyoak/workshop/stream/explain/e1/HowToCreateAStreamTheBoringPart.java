@@ -34,7 +34,6 @@ public class HowToCreateAStreamTheBoringPart {
 
   @Test
   public void create_stream_with_iterator() throws Exception {
-    @Info("Infinite stream in this step. It has no limits so we should limit it.")
     Stream<Integer> infiniteStream = Stream.iterate(0, t -> t + 1);
 
     Stream<Integer> finiteStream = infiniteStream.limit(5);

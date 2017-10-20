@@ -8,6 +8,8 @@ import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
+import static java.util.Arrays.asList;
+
 public class StreamTypes {
   @Test
   public void stream() throws Exception {
@@ -17,7 +19,7 @@ public class StreamTypes {
   @Test
   @Info("Stream of Integers with concrete methods for creation and usage")
   public void intStream() throws Exception {
-    IntStream.range(0, 10);// 10 is excluded
+    IntStream.range(0, 10); // 10 is excluded
     IntStream.rangeClosed(0, 10); // 10 is included
     IntStream.of(1, 2, 3);
   }
