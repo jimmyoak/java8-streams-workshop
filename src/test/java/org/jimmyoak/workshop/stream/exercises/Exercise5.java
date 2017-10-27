@@ -21,8 +21,7 @@ public class Exercise5 {
 
   private boolean isPrime(int number) {
     return range(2, number)
-        .mapToObj(it -> number % it == 0)
-        .noneMatch(it -> it);
+        .noneMatch(it -> number % it == 0);
   }
 
   @Test
